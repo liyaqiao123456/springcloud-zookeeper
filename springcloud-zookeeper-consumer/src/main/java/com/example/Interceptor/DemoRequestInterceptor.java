@@ -24,14 +24,14 @@ public class DemoRequestInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(final RequestTemplate requestTemplate) {
-        HttpServletRequest request = this.getCurrentRequest();
-        this.logRequest(request);
-        requestTemplate.header(HttpHeaders.USER_AGENT, "cjyun-demo-client/1.0");
-        String auth = this.getAuth(request);
-        if (!Strings.isNullOrEmpty(auth)) {
-            LOGGER.warn("Authorization: {}", auth);
-            requestTemplate.header(HttpHeaders.AUTHORIZATION, "service CJTLIS:87DDBAA21F7F33CC81719A776AD8991F",auth);
-}
+//        HttpServletRequest request = this.getCurrentRequest();
+//        this.logRequest(request);
+//        requestTemplate.header(HttpHeaders.USER_AGENT, "cjyun-demo-client/1.0");
+//        String auth = this.getAuth(request);
+//        if (!Strings.isNullOrEmpty(auth)) {
+//            LOGGER.warn("Authorization: {}", auth);
+//            requestTemplate.header(HttpHeaders.AUTHORIZATION, "service CJTLIS:87DDBAA21F7F33CC81719A776AD8991F",auth);
+//}
     }
 
     private String getAuth(final HttpServletRequest request) {

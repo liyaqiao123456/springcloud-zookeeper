@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 带hystrix熔断机制和feign负载均衡机制的Service
  */
-@FeignClient(value = "demoService", fallback = ZKFeignHystrixClient.ZKFeignHystrixClientFallback.class)
+@FeignClient(value = "demoService", configuration = FeignConfig.class, fallback = ZKFeignHystrixClient.ZKFeignHystrixClientFallback.class)
 public interface ZKFeignHystrixClient {
 
     @RequestMapping(path = "/")
