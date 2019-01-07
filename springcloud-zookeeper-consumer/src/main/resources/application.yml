@@ -1,0 +1,11 @@
+debug: true
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: demoClient
+  cloud:
+    zookeeper:
+      connect-string: 120.77.214.1:2181
