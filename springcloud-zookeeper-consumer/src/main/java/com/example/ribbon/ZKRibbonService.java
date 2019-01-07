@@ -30,12 +30,12 @@ public class ZKRibbonService {
      */
     @HystrixCommand(fallbackMethod = "fallBack")
     public String welcome() {
-        return restTemplate.getForObject("http://zk-service", String.class);
+        return restTemplate.getForObject("http://demoService", String.class);
     }
 
     @HystrixCommand(fallbackMethod = "fallfindByIdBack")
     public User findById(Integer id) {
-        return restTemplate.getForObject("http://zk-service/" + id, User.class);
+        return restTemplate.getForObject("http://demoService/" + id, User.class);
     }
 
     @HystrixCommand(fallbackMethod = "fallfindAllBack")
@@ -47,7 +47,7 @@ public class ZKRibbonService {
 //        }
 
         // right 切记此处需要使用Object[]即对象数组来接收
-        User[] users = this.restTemplate.getForObject("http://zk-service/findAll", User[].class);
+        User[] users = this.restTemplate.getForObject("http://demoService/findAll", User[].class);
         List<User> list = Arrays.asList(users);
         return list;
     }

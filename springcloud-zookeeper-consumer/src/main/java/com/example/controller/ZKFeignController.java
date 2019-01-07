@@ -1,6 +1,7 @@
-package com.example.feign;
+package com.example.controller;
 
 import com.example.User;
+import com.example.feign.ZKFeignHystrixClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ZKFeignContorller {
+public class ZKFeignController {
 
     @Autowired
     private DiscoveryClient discovery;

@@ -27,7 +27,7 @@ public class ZKRibbonContorller {
     @RequestMapping(value = "/ribbon", method = RequestMethod.GET)
     public ServiceInstance ribbon() {
 //        this.discoveryClient.getLocalServiceInstance();
-        return loadBalancerClient.choose("zk-service");
+        return loadBalancerClient.choose("demoService");
     }
 
     @RequestMapping(value = "/ribbon/welcome", method = RequestMethod.GET)

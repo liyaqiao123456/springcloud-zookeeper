@@ -1,6 +1,7 @@
 package com.example.feign;
 
 import com.example.User;
+import com.example.config.FeignConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -26,22 +27,26 @@ public interface ZKFeignHystrixClient {
     @RequestMapping(value = "/findAll")
     List<User> findAll();
 
+
+
+
+
+
+
+
+
     @Component
     class ZKFeignHystrixClientFallback implements ZKFeignHystrixClient {
-
         private final Logger logger = LoggerFactory.getLogger(ZKFeignHystrixClientFallback.class);
-
         @Override
         public String welcome() {
             logger.info("调用服务失败，短路器执行");
             return "调用服务失败，短路器执行";
         }
-
         @Override
         public User findById(Integer id) {
             return new User(id, "调用服务失败，短路器执行");
         }
-
         @Override
         public List<User> findAll() {
             return Collections.emptyList();
