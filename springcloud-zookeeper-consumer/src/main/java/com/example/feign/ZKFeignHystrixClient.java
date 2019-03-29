@@ -8,9 +8,11 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 带hystrix熔断机制和feign负载均衡机制的Service
@@ -20,6 +22,9 @@ public interface ZKFeignHystrixClient {
 
     @RequestMapping(path = "/")
     String welcome();
+
+
+//    String welcome(@RequestParam Map<String, Object> studentParam );
 
     @RequestMapping(value = "/{id}")
     User findById(@PathVariable("id") Integer id);
